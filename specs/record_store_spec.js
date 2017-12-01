@@ -68,4 +68,11 @@ describe("Store Tests", function(){
     assert.strictEqual(recordStore.sell(record2), "Out of stock");
   });
 
+  it('can report the financial situation', function(){
+    recordStore.addRecord(record);
+    recordStore.addRecord(record2);
+    recordStore.sell(record2);
+    assert.strictEqual(recordStore.reportFinances(), "Balance: £1, Stock: £2, Total: £3");
+  });
+
 });

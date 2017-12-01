@@ -38,6 +38,11 @@ RecordStore.prototype = {
       soldRecord = "Out of stock";
     }
     return soldRecord;
+  },
+
+  reportFinances: function(){
+    var total = this.balance + this.inventoryValue;
+    return "Balance: £" + this.balance + ", Stock: £" + this.inventoryValue + ", Total: £" + total;
   }
 
 };
