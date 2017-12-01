@@ -5,7 +5,8 @@ var RecordStore = require('../record_store');
 describe("Store Tests", function(){
 
   beforeEach(function(){
-    record = new Record("Biffy Clyro", "Bubbles", "Pop-Rock", 1);
+    record = new Record("Biffy Clyro", "Bubbles", "Pop-Rock", 2);
+    record2 = new Record("Katy Perry", "Firework", "Pop", 1);
     recordStore = new RecordStore("Change The Record", "Glasgow");
   });
 
@@ -28,6 +29,15 @@ describe("Store Tests", function(){
   it('can add a record', function(){
     recordStore.addRecord(record);
     assert.strictEqual(recordStore.inventory[0], record);
+  });
+
+  it('can list the inventory', function(){
+    recordStore.addRecord(record);
+    recordStore.addRecord(record2);
+    var details1 = record.properties();
+    var details2 = record2.properties();
+    var expected = details1 + "\n\n" + details2;
+    assert.strictEqual(recordStore.listInventory(), expected);
   });
 
 });

@@ -1,7 +1,6 @@
 {
   "name": "record_store",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha specs"
@@ -10,5 +9,17 @@
   "license": "ISC",
   "devDependencies": {
     "mocha": "^4.0.1"
-  }
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdpuk86/js_record_store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hdpuk86/js_record_store/issues"
+  },
+  "homepage": "https://github.com/hdpuk86/js_record_store#readme",
+  "description": ""
 }
