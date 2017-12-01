@@ -29,6 +29,13 @@ describe("Store Tests", function(){
   it('can add a record', function(){
     recordStore.addRecord(record);
     assert.strictEqual(recordStore.inventory[0], record);
+    assert.strictEqual(recordStore.inventoryValue, 2);
+  });
+
+  it('should have the value of inventory', function(){
+    recordStore.addRecord(record);
+    recordStore.addRecord(record2);
+    assert.strictEqual(recordStore.inventoryValue, 3);
   });
 
   it('can list the inventory', function(){
@@ -42,8 +49,10 @@ describe("Store Tests", function(){
 
   it('can remove an item from the inventory', function(){
     recordStore.addRecord(record);
+    recordStore.addRecord(record2);
     assert.strictEqual(recordStore.removeRecord(record), record);
-    assert.strictEqual(recordStore.inventory.length, 0);
+    assert.strictEqual(recordStore.inventory.length, 1);
+    assert.strictEqual(recordStore.inventoryValue, 1);
   });
 
   it('can sell a record', function(){
@@ -51,6 +60,7 @@ describe("Store Tests", function(){
     assert.strictEqual(recordStore.sell(record), record);
     assert.strictEqual(recordStore.balance, record.price);
     assert.strictEqual(recordStore.inventory.length, 0);
+    assert.strictEqual(recordStore.inventoryValue, 0);
   });
 
   it('should return "Out of stock" if it tries to sell a record that does not exist', function(){

@@ -6,18 +6,21 @@ var RecordStore = function(name, location){
   this.name = name;
   this.location = location;
   this.inventory = [];
+  this.inventoryValue = 0;
   this.balance = 0;
 };
 
 RecordStore.prototype = {
   addRecord: function(record){
     this.inventory.push(record);
+    this.inventoryValue += record.price;
   },
 
   removeRecord: function(record){
     var removed = remove(this.inventory, function(item){
       return item === record;
     })
+    this.inventoryValue -= record.price;
     return removed[0];
   },
 
@@ -36,6 +39,7 @@ RecordStore.prototype = {
     }
     return soldRecord;
   }
+
 };
 
 module.exports = RecordStore;
