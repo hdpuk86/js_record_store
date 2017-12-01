@@ -40,4 +40,12 @@ describe("Store Tests", function(){
     assert.strictEqual(recordStore.listInventory(), expected);
   });
 
+  it('can sell a record', function(){
+    recordStore.addRecord(record);
+    recordStore.addRecord(record2);
+    assert.strictEqual(recordStore.sell(record), record);
+    assert.strictEqual(recordStore.balance, record.price);
+    assert.strictEqual(recordStore.inventory.length, 1);
+  });
+
 });
