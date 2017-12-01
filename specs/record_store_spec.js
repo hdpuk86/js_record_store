@@ -21,4 +21,13 @@ describe("Store Tests", function(){
     assert.strictEqual(recordStore.inventory.length, 0);
   });
 
+  it('should have a balance', function(){
+    assert.strictEqual(recordStore.balance, 0);
+  });
+
+  it('can add a record', function(){
+    recordStore.addRecord(record);
+    assert.strictEqual(recordStore.inventory[0], record);
+  });
+
 });
