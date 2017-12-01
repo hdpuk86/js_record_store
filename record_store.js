@@ -43,6 +43,10 @@ RecordStore.prototype = {
   reportFinances: function(){
     var total = this.balance + this.inventoryValue;
     return "Balance: £" + this.balance + ", Stock: £" + this.inventoryValue + ", Total: £" + total;
+  },
+
+  viewGenre: function(genre){
+    return this.inventory.filter(record => record.genre === genre);
   }
 
 };

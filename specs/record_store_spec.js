@@ -75,4 +75,14 @@ describe("Store Tests", function(){
     assert.strictEqual(recordStore.reportFinances(), "Balance: £1, Stock: £2, Total: £3");
   });
 
+  it('should show all records of a given genre', function(){
+    var record3 = new Record("White Stripes", "Icky Thump", "Rock", 2.5);
+    var record4 = new Record("Linkin Park", "Numb", "Rock", 2);
+    recordStore.addRecord(record);
+    recordStore.addRecord(record2);
+    recordStore.addRecord(record3);
+    recordStore.addRecord(record4);
+    assert.deepStrictEqual(recordStore.viewGenre("Rock"), [record3, record4]);
+  });
+
 });
