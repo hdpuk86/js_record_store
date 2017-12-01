@@ -40,12 +40,22 @@ describe("Store Tests", function(){
     assert.strictEqual(recordStore.listInventory(), expected);
   });
 
+  it('can remove an item from the inventory', function(){
+    recordStore.addRecord(record);
+    assert.strictEqual(recordStore.removeRecord(record), record);
+    assert.strictEqual(recordStore.inventory.length, 0);
+  });
+
   it('can sell a record', function(){
     recordStore.addRecord(record);
-    recordStore.addRecord(record2);
     assert.strictEqual(recordStore.sell(record), record);
     assert.strictEqual(recordStore.balance, record.price);
-    assert.strictEqual(recordStore.inventory.length, 1);
+    assert.strictEqual(recordStore.inventory.length, 0);
+  });
+
+  it('should return "Out of stock" if it tries to sell a record that does not exist', function(){
+    recordStore.addRecord(record);
+    assert.strictEqual(recordStore.sell(record2), "Out of stock");
   });
 
 });

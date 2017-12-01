@@ -13,17 +13,28 @@ RecordStore.prototype = {
   addRecord: function(record){
     this.inventory.push(record);
   },
+
+  removeRecord: function(record){
+    var removed = remove(this.inventory, function(item){
+      return item === record;
+    })
+    return removed[0];
+  },
+
   listInventory: function(){
     var list = this.inventory.map(record => record.properties());
     return join(list, "\n\n");
   },
+
   sell: function(record){
+    var soldRecord;
     if(this.inventory.includes(record)){
+      soldRecord = this.removeRecord(record);
       this.balance += record.price;
-      var soldRecord = remove(this.inventory, function(item){
-        return item === record;
-      })
-    } return soldRecord[0];
+    } else {
+      soldRecord = "Out of stock";
+    }
+    return soldRecord;
   }
 };
 
