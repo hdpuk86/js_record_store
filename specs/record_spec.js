@@ -23,4 +23,9 @@ describe("Record Tests", function(){
     assert.strictEqual(record.price, 1);
   });
 
+  it('should list properties', function(){
+    assert.strictEqual(record.properties(),
+  "title: Feeling This\nartist: Blink-182\ngenre: Pop-Punk\nprice: £1");
+  });
+
 });

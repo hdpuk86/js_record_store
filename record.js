@@ -5,4 +5,10 @@ var Record = function(artist, title, genre, price){
   this.price = price;
 };
 
+Record.prototype = {
+  properties: function(){
+    return "title: " + this.title + "\nartist: " + this.artist + "\ngenre: " + this.genre + "\nprice: £" + this.price;
+  }
+};
+
 module.exports = Record;
