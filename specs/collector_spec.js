@@ -33,7 +33,7 @@ describe("Collector Tests", function(){
     assert.strictEqual(collector.collection.length, 0);
   });
 
-  xit('should sell a record', function(){
+  it('should sell a record', function(){
     collector.buy(record1);
     collector.sell(record1);
     assert.strictEqual(collector.collection.length, 0);
