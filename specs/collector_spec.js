@@ -81,8 +81,12 @@ describe("Collector Tests", function(){
     assert.deepStrictEqual(collector.sortExpensive(), expected);
   });
 
-  xit('should compare their collection value with another collector', function(){
-
+  it('should compare their collection value with another collector', function(){
+    var richCollector = new Collector(500);
+    richCollector.buy(record1);
+    collector.buy(record2);
+    assert.strictEqual(collector.compare(richCollector), richCollector);
+    assert.strictEqual(richCollector.compare(collector), richCollector);
   });
 
 });
