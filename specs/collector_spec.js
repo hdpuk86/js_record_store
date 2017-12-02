@@ -20,17 +20,17 @@ describe("Collector Tests", function(){
     assert.strictEqual(collector.collection.length, 0);
   });
 
-  xit('should buy a record', function(){
-    collector.buy(record);
+  it('should buy a record', function(){
+    collector.buy(record1);
     assert.strictEqual(collector.collection.length, 1);
     assert.strictEqual(collector.cash, 80);
   });
 
-  xit('should not buy a record it can\'t afford', function(){
+  it('should not buy a record it can\'t afford', function(){
     collector.cash = 10;
     collector.buy(record1);
     assert.strictEqual(collector.cash, 10);
-    assert.strictEqual(collector.collection.length, 1);
+    assert.strictEqual(collector.collection.length, 0);
   });
 
   xit('should sell a record', function(){
