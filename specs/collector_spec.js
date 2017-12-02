@@ -12,11 +12,11 @@ describe("Collector Tests", function(){
     record4 = new Record("Tenacious D", "Wonderboy", "Rock", 5);
   });
 
-  xit('should have cash', function(){
-    assert.strictEqual(collector.cash, 50);
+  it('should have cash', function(){
+    assert.strictEqual(collector.cash, 100);
   });
 
-  xit('should have a collection', function(){
+  it('should have a collection', function(){
     assert.strictEqual(collector.collection.length, 0);
   });
 
