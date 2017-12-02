@@ -83,10 +83,13 @@ describe("Collector Tests", function(){
 
   it('should compare their collection value with another collector', function(){
     var richCollector = new Collector(500);
+    var otherCollector = new Collector(20);
     richCollector.buy(record1);
     collector.buy(record2);
+    otherCollector.buy(record3);
     assert.strictEqual(collector.compare(richCollector), richCollector);
     assert.strictEqual(richCollector.compare(collector), richCollector);
+    assert.strictEqual(otherCollector.compare(collector), "Equal value");
   });
 
 });

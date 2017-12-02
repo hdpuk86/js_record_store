@@ -40,6 +40,18 @@ Collector.prototype = {
 
   mostValuable: function(){
     return this.sortExpensive()[0];
+  },
+
+  compare: function(collector){
+    var totalValue = this.totalValue();
+    var comparisonValue = collector.totalValue();
+    if(totalValue > comparisonValue){
+      return this;
+    } else if(totalValue < comparisonValue){
+      return collector;
+    } else {
+      return "Equal value";
+    }
   }
 
 };
