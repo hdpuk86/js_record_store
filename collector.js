@@ -1,6 +1,4 @@
-var remove = require('lodash/remove');
-var sumBy = require('lodash/sumBy');
-var Record = require('./record.js');
+var _ = require('lodash');
 
 var Collector = function(cash){
   this.cash = cash;
@@ -17,7 +15,7 @@ Collector.prototype = {
 
   sell: function(record){
     if(this.collection.includes(record)){
-      var sold = remove(this.collection, record);
+      var sold = _.remove(this.collection, record);
       this.cash += record.price;
       return sold[0];
     }
@@ -26,10 +24,22 @@ Collector.prototype = {
   totalValue: function(genre){
     if(genre){
       var filtered = this.collection.filter(record => record.genre === genre);
-      return sumBy(filtered, 'price');
+      return _.sumBy(filtered, 'price');
     } else {
-      return sumBy(this.collection, 'price');
+      return _.sumBy(this.collection, 'price');
     }
+  },
+
+  sortCheapest: function(){
+    return _.sortBy(this.collection, 'price');
+  },
+
+  sortExpensive: function(){
+    return this.sortCheapest().reverse();
+  },
+
+  mostValuable: function(){
+    return this.sortExpensive()[0];
   }
 
 };

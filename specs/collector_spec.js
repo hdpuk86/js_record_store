@@ -55,7 +55,7 @@ describe("Collector Tests", function(){
     assert.strictEqual(collector.totalValue("Rock"), 25);
   });
 
-  xit('should view the most valuable record', function(){
+  it('should view the most valuable record', function(){
     collector.buy(record1);
     collector.buy(record2);
     collector.buy(record3);
@@ -63,22 +63,22 @@ describe("Collector Tests", function(){
     assert.strictEqual(collector.mostValuable(), record1);
   });
 
-  xit('should sort by value, ascending', function(){
+  it('should sort by value, ascending', function(){
     collector.buy(record1);
     collector.buy(record2);
     collector.buy(record3);
     collector.buy(record4);
     expected = [record2, record3, record4, record1];
-    assert.strictEqual(collector.sortCheapest(), expected);
+    assert.deepStrictEqual(collector.sortCheapest(), expected);
   });
 
-  xit('should sort by value, descending', function(){
+  it('should sort by value, descending', function(){
     collector.buy(record1);
     collector.buy(record2);
     collector.buy(record3);
     collector.buy(record4);
-    expected = [record1, record4, record2, record3];
-    assert.strictEqual(collector.sortExpensive(), expected);
+    expected = [record1, record4, record3, record2];
+    assert.deepStrictEqual(collector.sortExpensive(), expected);
   });
 
   xit('should compare their collection value with another collector', function(){
