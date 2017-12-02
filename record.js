@@ -7,7 +7,7 @@ var Record = function(artist, title, genre, price){
 
 Record.prototype = {
   properties: function(){
-    return "title: " + this.title + "\nartist: " + this.artist + "\ngenre: " + this.genre + "\nprice: £" + this.price;
+    return "Title: " + this.title + "\nArtist: " + this.artist + "\nGenre: " + this.genre + "\nPrice: £" + this.price;
   }
 };
 

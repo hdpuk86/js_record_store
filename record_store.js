@@ -30,14 +30,13 @@ RecordStore.prototype = {
   },
 
   sell: function(record){
-    var soldRecord;
     if(this.inventory.includes(record)){
       soldRecord = this.removeRecord(record);
       this.balance += record.price;
+      return soldRecord;
     } else {
-      soldRecord = "Out of stock";
+      return "Out of stock";
     }
-    return soldRecord;
   },
 
   reportFinances: function(){
