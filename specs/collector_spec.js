@@ -40,19 +40,19 @@ describe("Collector Tests", function(){
     assert.strictEqual(collector.cash, 100);
   });
 
-  xit('should view the total value of the collection', function(){
+  it('should view the total value of the collection', function(){
     collector.buy(record1);
     collector.buy(record2);
     collector.buy(record3);
     assert.strictEqual(collector.totalValue(), 24);
   });
 
-  xit('should view total value by genre', function(){
+  it('should view total value by genre', function(){
     collector.buy(record1);
     collector.buy(record2);
     collector.buy(record3);
     collector.buy(record4);
-    assert.strictEqual(collector.totalValue("Rock", 25));
+    assert.strictEqual(collector.totalValue("Rock"), 25);
   });
 
   xit('should view the most valuable record', function(){
